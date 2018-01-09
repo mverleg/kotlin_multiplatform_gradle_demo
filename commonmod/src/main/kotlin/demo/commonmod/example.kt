@@ -1,4 +1,5 @@
+package demo.commonmod
 
-fun getPlatform() {
+fun getPlatform(): String {
     return "I don't know..."
 }
