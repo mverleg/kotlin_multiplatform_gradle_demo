@@ -23,6 +23,6 @@ dependencies {
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    compile project(':commonmod')
-    testCompile project(':commonmod')
+//    compile project(':commonmod')
+//    testCompile project(':commonmod')
 }

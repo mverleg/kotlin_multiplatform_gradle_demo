@@ -18,6 +18,6 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     expectedBy project(":")
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
-    compile project(':commonmod')
-    testCompile project(':commonmod')
+//    compile project(':commonmod')
+//    testCompile project(':commonmod')
 }
