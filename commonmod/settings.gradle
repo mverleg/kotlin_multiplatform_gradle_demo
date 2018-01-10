@@ -1,3 +1,5 @@
 rootProject.name = 'demo'
 
-//include 'demo-jvm', 'demo-js'
+include 'demo-jvm', 'demo-js'
+
+
