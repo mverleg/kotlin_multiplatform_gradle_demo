@@ -17,4 +17,10 @@ This should show (after a bunch of Gradle stuff)::
 
 Native is not yet supported because it's not mature enough yet.
 
+Inspiration from:
+
+* Trying a lot (way more than I'd have liked).
+* Some ideas from Kluent https://github.com/MarkusAmshove/Kluent
+* See also StackOverflow https://stackoverflow.com/questions/48194556/use-gradle-sub-projects-with-kotlin-multiplatform
+
 
