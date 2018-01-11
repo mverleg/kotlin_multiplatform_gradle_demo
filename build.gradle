@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'kotlin-platform-common'
+apply plugin: 'idea'
 
 repositories {
     mavenCentral()
@@ -22,3 +23,6 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
     compile project(':commonmod')
 }
+group 'demo'
+version '1.0.0'
+
