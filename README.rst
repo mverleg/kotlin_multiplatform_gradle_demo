@@ -2,10 +2,19 @@
 Example of using Gradle sub-projects together with Kotlin multi-platform support
 =======================================================================================
 
-**This project does not currently work successfully yet.** Do not use this example.
+This project is an example of one way to set up a multi-platform Kotlin project separated into Gradle submodules.
 
-I use this command to try and compile/run::
+The code itself is super simple, with just a platform-dependent method (expect/actual).
 
-    gradle clean run -p demo-jvm
+To run the code::
+
+    gradle run
+
+This should show (after a bunch of Gradle stuff)::
+
+    Hello from JVM
+    Hello from Javascript
+
+Native is not yet supported because it's not mature enough yet.
 
 
