@@ -4,9 +4,11 @@ buildscript {
 
     repositories {
         mavenCentral()
+        maven { url  "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:+"
     }
 }
 
@@ -23,6 +25,13 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
     compile project(':commonmod')
 }
-group 'demo'
-version '1.0.0'
+
+allprojects {
+    group 'demo'
+    version '1.0.0'
+
+    /* Merge all the build directories into one. */
+    buildDir = rootProject.file("build")
+}
+
 

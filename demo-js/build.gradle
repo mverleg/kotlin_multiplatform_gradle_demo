@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
+    expectedBy project(":commonmod")
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    expectedBy project(":")
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
 }
 
