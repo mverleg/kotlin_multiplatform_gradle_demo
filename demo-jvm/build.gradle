@@ -18,6 +18,11 @@ repositories {
 }
 
 mainClassName = "demo.MainKt"
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
 
 dependencies {
     expectedBy project(":commonmod")
