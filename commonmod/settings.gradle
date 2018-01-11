@@ -1,5 +1,0 @@
-rootProject.name = 'demo'
-
-include 'demo-jvm', 'demo-js'
-
-

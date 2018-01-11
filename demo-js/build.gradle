@@ -4,12 +4,24 @@ buildscript {
 
     repositories {
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
     }
 }
+
 apply plugin: 'kotlin-platform-js'
+apply plugin: 'com.moowork.node'
+
+compileKotlin2Js {
+    kotlinOptions {
+        moduleKind = "umd"
+        sourceMap = true
+        metaInfo = true
+    }
+}
 
 repositories {
     mavenCentral()
@@ -19,6 +31,12 @@ dependencies {
     expectedBy project(":commonmod")
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+}
+
+task run(type: NodeTask) {
+    description = "Run the Javascript code using NodeJS (no browser)"
+    dependsOn build
+    script = file("${rootProject.file('build')}/classes/main/demo-js.js")
 }
 
 
