@@ -9,6 +9,7 @@ buildscript {
     }
 }
 
+
 apply plugin: 'kotlin-platform-common'
 
 repositories {
@@ -16,14 +17,22 @@ repositories {
 }
 
 dependencies {
-    compile project(':demo')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+
+    compile project(":alpha")
 }
+
+//task run(type: Task) {}
 
 allprojects {
     group 'demo'
     version '1.0.0'
 
     /* Merge all the build directories into one. */
-    buildDir = rootProject.file("build")
+//    buildDir = rootProject.file("build")
+//    allprojects {
+//        buildDir = rootProject.file("build")
+//    }
 }
-

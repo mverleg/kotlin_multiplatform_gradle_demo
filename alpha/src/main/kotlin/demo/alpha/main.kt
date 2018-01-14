@@ -1,6 +1,6 @@
 package demo.alpha
 
-import getPlatform
+import beta.getPlatform
 
 fun main(args: Array<String>) {
     println("Hello from ${getPlatform()}")
