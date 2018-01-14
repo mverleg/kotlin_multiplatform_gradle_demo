@@ -1,4 +1,4 @@
-package demo.commonmod
+package demo.common
 
 expect fun getPlatform(): String
 
