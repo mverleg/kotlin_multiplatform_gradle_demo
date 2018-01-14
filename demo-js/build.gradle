@@ -29,10 +29,24 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
 }
 
+node {
+    download = true
+    version = '9.4.0'
+    npmVersion = '5.6.0'
+    nodeModulesDir = file("${buildDir}")
+}
+
+/* Install the Kotlin javascript file. */
+task installKotlin(type: NpmTask) {
+  args = ['install', '--silent', 'kotlin']
+}
+
+assemble.dependsOn installKotlin
+
 task run(type: NodeTask) {
     description = "Run the Javascript code using NodeJS (no browser)"
     dependsOn build
-    script = file("${rootProject.file('build')}/classes/main/demo-js.js")
+    script = file("${rootProject.buildDir.path}/classes/main/demo-js.js")
 }
 
 

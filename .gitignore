@@ -4,3 +4,4 @@ build/
 gradlew
 gradlew.bat
 .idea/
+package-lock.json
