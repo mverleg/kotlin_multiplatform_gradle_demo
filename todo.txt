@@ -1,0 +1,5 @@
+
+* Platform code is now only in the top module, which will create circular dependencies
+* Make sure it also works for automated tests
+
+

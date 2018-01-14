@@ -1,5 +1,7 @@
 rootProject.name = 'demo'
 
-include 'demo-jvm', 'demo-js', 'commonmod'
-rootProject.name = 'demo'
+include 'demo-jvm'
+include 'demo-js'
+include 'demo-common'
+include 'othermod'
 

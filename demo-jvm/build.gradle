@@ -14,7 +14,7 @@ jar {
 }
 
 dependencies {
-    expectedBy project(":commonmod")
+    expectedBy project(":demo-common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
