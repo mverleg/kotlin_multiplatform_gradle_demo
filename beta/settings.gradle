@@ -1,3 +1,6 @@
 rootProject.name = 'beta'
 
-include 'beta-jvm', 'beta-js'
+include 'beta-jvm'
+include 'beta-js'
+
+

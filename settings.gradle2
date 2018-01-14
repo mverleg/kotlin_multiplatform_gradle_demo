@@ -1,0 +1,6 @@
+rootProject.name = 'demo'
+
+include 'demo'
+include 'othermod'
+
+
