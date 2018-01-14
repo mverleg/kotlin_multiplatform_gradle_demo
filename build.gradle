@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':demo-common')
+    compile project(':demo')
 }
 
 allprojects {
