@@ -1,6 +1,0 @@
-rootProject.name = 'beta'
-
-include 'beta-jvm'
-include 'beta-js'
-
-

@@ -1,5 +1,5 @@
-package beta
+package demo.beta
 
 actual inline fun getPlatform(): String {
-    return "JVM"
+    return "JS"
 }
