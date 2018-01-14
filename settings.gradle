@@ -1,10 +1,12 @@
 rootProject.name = 'demo'
 
-include 'demo'
 include 'demo-jvm'
 include 'demo-js'
-include 'othermod'
-include 'othermod-jvm'
-include 'othermod-js'
+include 'alpha'
+//include 'alpha-jvm'
+//include 'alpha-js'
+include 'beta'
+//include 'beta-jvm'
+//include 'beta-js'
 
 
