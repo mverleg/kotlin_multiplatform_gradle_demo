@@ -31,7 +31,7 @@ allprojects {
     version '1.0.0'
 
     /* Merge all the build directories into one. */
-//    buildDir = rootProject.file("build")
+    buildDir = rootProject.file("build")
 //    allprojects {
 //        buildDir = rootProject.file("build")
 //    }

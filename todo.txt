@@ -1,5 +1,9 @@
 
 * Platform code is now only in the top module, which will create circular dependencies
 * Make sure it also works for automated tests
+* Try to get rid of the top level platform projects
+* Share configurations between projects
+* Add Native platform
+* Try without platform modules: should work for all except top one and ones that actually have platform-dependence
 
 

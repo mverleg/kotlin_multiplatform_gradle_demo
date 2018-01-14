@@ -30,6 +30,7 @@ compileKotlin2Js {
         moduleKind = "umd"
         sourceMap = true
         metaInfo = true
+        noStdlib = false  // TODO: what does this do? can I remove the npm code?
     }
 }
 
