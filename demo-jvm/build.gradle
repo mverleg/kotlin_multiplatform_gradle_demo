@@ -14,7 +14,8 @@ jar {
 }
 
 dependencies {
-    expectedBy project(":demo-common")
+    expectedBy project(":demo")
+    compile project(':othermod-jvm')  // TODO: needed? that would suck
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"

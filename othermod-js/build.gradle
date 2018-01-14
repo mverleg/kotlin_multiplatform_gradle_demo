@@ -24,8 +24,7 @@ repositories {
 }
 
 dependencies {
-    expectedBy project(":demo")
-    compile project(':othermod-js')  // TODO: needed? that would suck
+    expectedBy project(":othermod")
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
 }

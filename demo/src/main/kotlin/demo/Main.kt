@@ -1,10 +1,10 @@
 package demo
 
 import demo.common.getPlatform
-import try_this
+import demo.other.tryThis
 
 public fun main(args: Array<String>) {
-    try_this()
+    tryThis()
     println("Hello from ${getPlatform()}")
 }
 
