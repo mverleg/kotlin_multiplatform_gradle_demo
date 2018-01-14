@@ -1,0 +1,66 @@
+buildscript {
+    ext.kotlin_version = '1.2.10'
+    ext.jsTargetDir = file("${buildDir.path}/classes/main/")
+
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
+    }
+}
+
+apply plugin: 'kotlin-platform-js'
+apply plugin: 'com.moowork.node'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    expectedBy project(":")
+    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+}
+
+compileKotlin2Js {
+    kotlinOptions {
+        moduleKind = "umd"
+        sourceMap = true
+        metaInfo = true
+    }
+}
+
+node {
+    download = true
+    version = '9.4.0'
+    npmVersion = '5.6.0'
+    nodeModulesDir = buildDir
+}
+
+/* Install the Kotlin javascript file. */
+task installKotlinJs(type: NpmTask) {
+  args = ['install', '--silent', 'kotlin']
+}
+
+//task copyKotlinJs(type: Copy) {
+//    dependsOn installKotlinJs
+//    from file("${buildDir.path}/node_modules/kotlin/kotlin.js")
+//    from file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
+//    into file("${jsTargetDir.path}")
+//}
+//
+//copyKotlinJs.dependsOn assemble
+//build.dependsOn copyKotlinJs
+
+build.dependsOn installKotlinJs
+
+task run(type: NodeTask) {
+    description = "Run the Javascript code using NodeJS (no browser)"
+    dependsOn build
+    script = file("${jsTargetDir.path}/${project.name}.js")
+}
+
+

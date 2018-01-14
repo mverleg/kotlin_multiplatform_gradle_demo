@@ -1,0 +1,38 @@
+buildscript {
+    ext.kotlin_version = '1.2.10'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+apply plugin: 'kotlin-platform-jvm'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    expectedBy project(":")
+    testCompile "junit:junit:4.12"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+}
+
+/* Application additions specific to the main module. */
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "demo.alpha.MainKt"
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
