@@ -20,9 +20,11 @@ repositories {
 }
 
 dependencies {
+    expectedBy project(":alpha")
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    expectedBy project(":")
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+
+    compile project(":beta-js")
 }
 
 compileKotlin2Js {

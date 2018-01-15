@@ -25,6 +25,7 @@ Inspiration from:
 * Trying a lot (way more than I'd have liked).
 * This page of documentation https://kotlinlang.org/docs/reference/multiplatform.html
 * Some ideas from Kluent https://github.com/MarkusAmshove/Kluent
+* Some ideas from this example https://github.com/MarcinMoskala/KotlinAcademyApp
 * See also StackOverflow https://stackoverflow.com/questions/48194556/use-gradle-sub-projects-with-kotlin-multiplatform
 
 These paragraphs from the documentation may be useful:
