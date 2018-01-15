@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies {
+    expectedBy project(":beta")
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    expectedBy project(":")
     testCompile "junit:junit:4.12"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"

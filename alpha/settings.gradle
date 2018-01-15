@@ -1,4 +1,0 @@
-rootProject.name = 'alpha'
-
-include 'alpha-jvm', 'alpha-js'
-
