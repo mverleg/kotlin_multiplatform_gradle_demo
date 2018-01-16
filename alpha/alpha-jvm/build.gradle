@@ -21,7 +21,7 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
 
-    compile project(":beta-jvm")
+    compile project(":beta:beta-jvm")
 }
 
 /* Application additions specific to the main module. */
