@@ -15,14 +15,17 @@ apply plugin: 'kotlin-platform-common'
 /* Make a list of submodules organized by platform. */
 project.ext {
     common_submods = subprojects.findAll {
-        !it.name.endsWith(':jvm') && !it.name.endsWith(':js') // && !it.name.endsWith('-native')
+        !it.name.endsWith('jvm') && !it.name.endsWith('js') // && !it.name.endsWith('-native')
     }
+    println("common submodules: ${common_submods}")
     jvm_submods = subprojects.findAll {
-        it.name.endsWith(':jvm')
+        it.name.endsWith('jvm')
     }
+    println("JVM submodules: ${jvm_submods}")
     js_submods = subprojects.findAll {
-        it.name.endsWith(':js')
+        it.name.endsWith('js')
     }
+    println("javascript submodules: ${js_submods}")
 }
 
 /* All the projects (including this top-level one). */

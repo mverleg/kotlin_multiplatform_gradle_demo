@@ -24,6 +24,16 @@ What I learned
 
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 
+For the future
+-------------------------------
+
+* Get errors when including non-existing submodules (Gradle strict mode?)
+* Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js``; this gave me circular dependencies somehow
+* Remove dependency duplication by somehow not specifying them explicitly for platform modules when provided for common module.
+* Avoid having to make platform modules when there is no platform specific code.
+* Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
+* Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
+
 More info
 -------------------------------
 
