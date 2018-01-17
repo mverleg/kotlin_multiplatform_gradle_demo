@@ -18,20 +18,25 @@ This should show (between a bunch of Gradle stuff)::
 What I learned
 -------------------------------
 
-* Every 'normal' (common) module has one platform module for each platform. If there is no platform specific code, this module can be just a gradle file in a directory.
-* The platform modules can be conveniently placed inside of the common module directory.
+* Every 'normal' (common) module has one platform module for each platform.
+* For common module ``alpha``, the javascript platform module must be called ``alpha-js`` (similar for ``-jvm``).
+* If there is no platform specific code, this module can be just a gradle file in a directory.
+* The platform modules can be conveniently placed inside of the common module directory (so ``alpha:alpha-js``).
 * The common module should not refer to the platform modules; the platform modules have a dependency ``expectedBy project(":the_common_module")``.
-* Only the top module has ``settings.gradle``, which includes ALL submodules (including platform ones). Make sure to get them right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
-
+* If module ``alpha`` depends on ``beta``, then
+    * ``alpha`` must have ``dependencies { compile project(":beta") }``
+    * ``alpha-js`` must have ``dependencies { compile project(":beta:beta-js") }`` (in addition to ``expectedBy``)
+    * ``alpha-jvm`` must have ``dependencies { compile project(":beta:beta-jvm") }`` (in addition to ``expectedBy``) etc
+* Only the top module has ``settings.gradle``, which includes ALL submodules (including platform ones).
+* Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
-
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 
 For the future
 -------------------------------
 
 * Get errors when including non-existing submodules (Gradle strict mode?)
-* Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js``; this gave me circular dependencies somehow
+* Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js`` (I tried but they couldn't see eachother).
 * Remove dependency duplication by somehow not specifying them explicitly for platform modules when provided for common module.
 * Avoid having to make platform modules when there is no platform specific code.
 * Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
