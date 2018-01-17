@@ -30,6 +30,9 @@ task installKotlinJs(type: NpmTask) {
   args = ['install', '--silent', 'kotlin']
 }
 
+//classes.dependsOn.remove("compileJava")
+//project(":alpha:js").classes.dependsOn.remove("alpha:js:compileKotlin2Js")
+
 //task copyKotlinJs(type: Copy) {
 //    dependsOn installKotlinJs
 //    from file("${buildDir.path}/node_modules/kotlin/kotlin.js")

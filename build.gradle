@@ -5,6 +5,7 @@ buildscript {
     repositories {
         mavenCentral()
     }
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -13,19 +14,20 @@ buildscript {
 apply plugin: 'kotlin-platform-common'
 
 /* Make a list of submodules organized by platform. */
+def fmtMods = { mods -> mods.collect { it.toString().substring(8) }.join(', ') }
 project.ext {
     common_submods = subprojects.findAll {
         !it.name.endsWith('jvm') && !it.name.endsWith('js') // && !it.name.endsWith('-native')
     }
-    println("common submodules: ${common_submods}")
+    println("common submodules ${fmtMods(common_submods)}")
     jvm_submods = subprojects.findAll {
         it.name.endsWith('jvm')
     }
-    println("JVM submodules: ${jvm_submods}")
+    println("JVM submodules: ${fmtMods(jvm_submods)}")
     js_submods = subprojects.findAll {
         it.name.endsWith('js')
     }
-    println("javascript submodules: ${js_submods}")
+    println("javascript submodules: ${fmtMods(js_submods)}")
 }
 
 /* All the projects (including this top-level one). */
@@ -33,15 +35,19 @@ allprojects {
     group 'demo'
     version '1.0.0'
 
+    repositories {
+        mavenCentral()
+    }
+
     /* Merge all the build directories into one. */
     buildDir = rootProject.file('build')
 }
 
 /* All the subprojects (but not this top-level one, which contains no code). */
 configure(subprojects) {
-    repositories {
-        mavenCentral()
-    }
+//    repositories {
+//        mavenCentral()
+//    }
 }
 
 /* All the common subprojects (including this top-level one), but no platform projects. */
@@ -55,6 +61,19 @@ configure(common_submods) {
     }
 }
 
+/* All JVM platform subprojects. */
+configure(jvm_submods) {
+    apply plugin: 'kotlin-platform-jvm'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        testCompile "junit:junit:4.12"
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+}
+
+/* All javascript platform subprojects. */
 configure(js_submods) {
     apply plugin: 'kotlin-platform-js'
 
@@ -72,15 +91,8 @@ configure(js_submods) {
     }
 }
 
-configure(jvm_submods) {
-    apply plugin: 'kotlin-platform-jvm'
-
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        testCompile "junit:junit:4.12"
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
 }
 
 dependencies {
