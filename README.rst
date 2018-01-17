@@ -18,9 +18,12 @@ This should show (between a bunch of Gradle stuff)::
 What I learned
 -------------------------------
 
-* Every common module has platform modules.
+* Every 'normal' (common) module has one platform module for each platform. If there is no platform specific code, this module can be just a gradle file in a directory.
+* The platform modules can be conveniently placed inside of the common module directory.
+* The common module should not refer to the platform modules; the platform modules have a dependency ``expectedBy project(":the_common_module")``.
 * Only the top module has ``settings.gradle``, which includes ALL submodules (including platform ones). Make sure to get them right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 
+* Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 
@@ -33,6 +36,7 @@ For the future
 * Avoid having to make platform modules when there is no platform specific code.
 * Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
 * Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
+* Why do Gradle 3 and 4 complain about circular dependency while Gradle 2 doesn't? (I don't see the circularity)
 
 More info
 -------------------------------
