@@ -14,8 +14,8 @@ apply plugin: 'com.moowork.node'
 
 dependencies {
     expectedBy project(":alpha")
-    compile project(":beta:beta-js")
-    compile project(":gamma:gamma-js")
+    compile project(":beta:js")
+    compile project(":gamma:js")
 }
 
 node {

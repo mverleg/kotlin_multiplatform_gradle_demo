@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.20'
 
     repositories {
         mavenCentral()
@@ -15,13 +15,13 @@ apply plugin: 'kotlin-platform-common'
 /* Make a list of submodules organized by platform. */
 project.ext {
     common_submods = subprojects.findAll {
-        !it.name.endsWith('-jvm') && !it.name.endsWith('-js') // && !it.name.endsWith('-native')
+        !it.name.endsWith(':jvm') && !it.name.endsWith(':js') // && !it.name.endsWith('-native')
     }
     jvm_submods = subprojects.findAll {
-        it.name.endsWith('-jvm')
+        it.name.endsWith(':jvm')
     }
     js_submods = subprojects.findAll {
-        it.name.endsWith('-js')
+        it.name.endsWith(':js')
     }
 }
 
