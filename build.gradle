@@ -1,3 +1,4 @@
+
 buildscript {
     ext.kotlin_version = '1.2.10'
 
@@ -9,30 +10,78 @@ buildscript {
     }
 }
 
-
 apply plugin: 'kotlin-platform-common'
 
-repositories {
-    mavenCentral()
+/* Make a list of submodules organized by platform. */
+project.ext {
+    common_submods = subprojects.findAll {
+        !it.name.endsWith('-jvm') && !it.name.endsWith('-js') // && !it.name.endsWith('-native')
+    }
+    jvm_submods = subprojects.findAll {
+        it.name.endsWith('-jvm')
+    }
+    js_submods = subprojects.findAll {
+        it.name.endsWith('-js')
+    }
 }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
-
-    compile project(":alpha")
-}
-
-//task run(type: Task) {}
-
+/* All the projects (including this top-level one). */
 allprojects {
     group 'demo'
     version '1.0.0'
 
     /* Merge all the build directories into one. */
-    buildDir = rootProject.file("build")
-//    allprojects {
-//        buildDir = rootProject.file("build")
-//    }
+    buildDir = rootProject.file('build')
 }
+
+/* All the subprojects (but not this top-level one, which contains no code). */
+configure(subprojects) {
+    repositories {
+        mavenCentral()
+    }
+}
+
+/* All the common subprojects (including this top-level one), but no platform projects. */
+configure(common_submods) {
+    apply plugin: 'kotlin-platform-common'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+    }
+}
+
+configure(js_submods) {
+    apply plugin: 'kotlin-platform-js'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    }
+
+    compileKotlin2Js {
+        kotlinOptions {
+            moduleKind = "umd"
+            sourceMap = true
+            metaInfo = true
+        }
+    }
+}
+
+configure(jvm_submods) {
+    apply plugin: 'kotlin-platform-jvm'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        testCompile "junit:junit:4.12"
+        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    }
+}
+
+dependencies {
+    compile project(":alpha")
+}
+
+

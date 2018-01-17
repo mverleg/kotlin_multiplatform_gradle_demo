@@ -12,28 +12,11 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin-platform-js'
 apply plugin: 'com.moowork.node'
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     expectedBy project(":alpha")
-    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
-
     compile project(":beta:beta-js")
-}
-
-compileKotlin2Js {
-    kotlinOptions {
-        moduleKind = "umd"
-        sourceMap = true
-        metaInfo = true
-        noStdlib = false  // TODO: what does this do? can I remove the npm code?
-    }
 }
 
 node {
@@ -63,7 +46,9 @@ build.dependsOn installKotlinJs
 task run(type: NodeTask) {
     description = "Run the Javascript code using NodeJS (no browser)"
     dependsOn build
-    script = file("${jsTargetDir.path}/${project.name}.js")
+    def pth = "${jsTargetDir.path}/${project.name}.js"
+    println("run $pth with node")
+    script = file(pth)
 }
 
 

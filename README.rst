@@ -10,12 +10,10 @@ To run the code::
 
     gradle run
 
-This should show (after a bunch of Gradle stuff)::
+This should show (between a bunch of Gradle stuff)::
 
     Hello from JVM
     Hello from Javascript
-
-Native is not yet supported because it's not mature enough yet.
 
 More info
 -------------------------------
