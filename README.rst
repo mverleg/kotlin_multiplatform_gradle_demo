@@ -15,7 +15,7 @@ This should show (between a bunch of Gradle stuff)::
     Hello from JVM
     Hello from Javascript
 
-Some lessons
+What I learned
 -------------------------------
 
 * Every common module has platform modules.

@@ -1,8 +1,8 @@
 
 dependencies {
     expectedBy project(":alpha")
-    compile project(":beta:beta-jvm")
-    compile project(":gamma:gamma-jvm")
+    compile project(":beta:jvm")
+    compile project(":gamma:jvm")
 }
 
 /* Application additions specific to the main module. */
