@@ -1,3 +1,4 @@
+
 buildscript {
     ext.kotlin_version = '1.2.10'
 
@@ -9,21 +10,6 @@ buildscript {
     }
 }
 
-apply plugin: 'kotlin-platform-common'
-
-repositories {
-    mavenCentral()
-}
-
-//task run(type: Task) {
-//    project("alpha:alpha-jvm").run()
-//    project("alpha:alpha-js").run()
-//}
-
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
-
     compile project(":beta")
 }
