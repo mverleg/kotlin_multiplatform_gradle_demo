@@ -6,4 +6,7 @@
 * Add Native platform
 * Try without platform modules: should work for all except top one and ones that actually have platform-dependence
 
+* Try :beta:js instead of :beta:beta-js (make sure to change the pattern in top level build.gradle)
+* Try if platform modules can be skipped if they don't contain any code
+
 

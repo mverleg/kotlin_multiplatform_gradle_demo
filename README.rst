@@ -15,6 +15,15 @@ This should show (between a bunch of Gradle stuff)::
     Hello from JVM
     Hello from Javascript
 
+Some lessons
+-------------------------------
+
+* Every common module has platform modules.
+* Only the top module has ``settings.gradle``, which includes ALL submodules (including platform ones). Make sure to get them right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
+
+
+* If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
+
 More info
 -------------------------------
 
