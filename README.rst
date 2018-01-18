@@ -8,7 +8,12 @@ The code itself is super simple, with just a platform-dependent method (expect/a
 
 To run the code::
 
-    gradle run
+    gradle wrapper
+    ./gradlew run
+
+Or to run only one platform (``jvm`` in this example)::
+
+    ./gradlew -p alpha/alpha-jvm run
 
 This should show (between a bunch of Gradle stuff)::
 
