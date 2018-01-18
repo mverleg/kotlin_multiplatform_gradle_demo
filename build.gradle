@@ -90,6 +90,12 @@ configure(js_submods) {
             metaInfo = true
         }
     }
+
+    compileTestKotlin2Js {
+        kotlinOptions {
+            outputFile = "${project.buildDir.path}/js/test/${project.name}.js"
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
