@@ -24,14 +24,19 @@ What I learned
 * The platform modules can be conveniently placed inside of the common module directory (so ``alpha:alpha-js``).
 * The common module should not refer to the platform modules; the platform modules have a dependency ``expectedBy project(":the_common_module")``.
 * If module ``alpha`` depends on ``beta``, then
+
     * ``alpha`` must have ``dependencies { compile project(":beta") }``
     * ``alpha-js`` must have ``dependencies { compile project(":beta:beta-js") }`` (in addition to ``expectedBy``)
     * ``alpha-jvm`` must have ``dependencies { compile project(":beta:beta-jvm") }`` (in addition to ``expectedBy``) etc
+
 * Only the top module has ``settings.gradle``, which includes ALL submodules (including platform ones).
 * Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
-* If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 * This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
+* If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
+* If you get npm errors, make sure the ``.npm`` directory for your system is writable.
+* If you get ``e: No class roots are found in the JDK path: /usr/lib/jvm/java-9-openjdk-amd64`` or similar, set ``JAVA_HOME`` environment variable to where java 8 jdk is (for example ``/usr/lib/jvm/java-8-openjdk-amd64/``).
+* If stuck on a problem for a long time, remove ``build``, ``gradle``, ``.gradle``, ``gradlew``, ``gradlew.bat`` and try again... (Yes, sage advice).
 
 For the future
 -------------------------------
