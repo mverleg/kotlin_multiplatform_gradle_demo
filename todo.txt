@@ -1,4 +1,7 @@
 
-* Make sure it also works for automated tests
+* Fix the initializationError when running tests
+* Make the tests for all modules run from top level
+* Make JS run the tests too
+*
 
 

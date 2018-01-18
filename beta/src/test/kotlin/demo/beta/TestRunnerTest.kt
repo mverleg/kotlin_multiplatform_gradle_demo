@@ -3,13 +3,9 @@ package demo.beta
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-expect class TestPlatform() {
-    fun testGetPlatform()
-}
-
-class TestPlatformCommon() {
+class TestRunnerTest() {
     @Test
-    fun testTest() {
+    fun testIfTheyRun() {
         assertTrue { false }
     }
 }
