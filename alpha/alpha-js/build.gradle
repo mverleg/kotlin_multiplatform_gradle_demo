@@ -52,9 +52,10 @@ task run(type: NodeTask) {
     description = "Run the Javascript code using NodeJS (no browser)"
     dependsOn build
     def pth = "${jsTargetDir.path}/${project.name}.js"
-    println("run $pth with node")
     environment NODE_PATH: jsTargetDir.path
     script = file(pth)
 }
-
+run.doFirst {
+    println("run $pth with node")
+}
 
