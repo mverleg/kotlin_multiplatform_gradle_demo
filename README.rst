@@ -47,7 +47,6 @@ For the future
 * Avoid having to make platform modules when there is no platform specific code.
 * Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
 * Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
-* Why do Gradle 3 and 4 complain about circular dependency while Gradle 2 doesn't? (I don't see the circularity)
 
 More info
 -------------------------------

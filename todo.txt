@@ -1,5 +1,4 @@
 
-* Make sure `run` task works
 * Make sure it also works for automated tests
 * Find/add a way to run only one platform
 

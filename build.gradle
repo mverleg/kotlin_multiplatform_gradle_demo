@@ -84,6 +84,7 @@ configure(js_submods) {
 
     compileKotlin2Js {
         kotlinOptions {
+            outputFile = "${project.buildDir.path}/js/${project.name}.js"
             moduleKind = "umd"
             sourceMap = true
             metaInfo = true
@@ -92,7 +93,7 @@ configure(js_submods) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
+    gradleVersion = '4.4.1'
 }
 
 dependencies {

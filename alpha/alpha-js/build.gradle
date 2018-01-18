@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.jsTargetDir = file("${buildDir.path}/classes/main/")
+    ext.jsTargetDir = file("${buildDir.path}/js")
 
     repositories {
         maven { url "https://plugins.gradle.org/m2/" }
@@ -30,14 +30,17 @@ task installKotlinJs(type: NpmTask) {
   args = ['install', '--silent', 'kotlin']
 }
 
-//classes.dependsOn.remove("compileJava")
-//project(":alpha:js").classes.dependsOn.remove("alpha:js:compileKotlin2Js")
-
+def kotlinJs = file("${buildDir.path}/node_modules/kotlin/kotlin.js")
+def kotlinMetaJs = file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
 task copyKotlinJs(type: Copy) {
     dependsOn installKotlinJs
-    from file("${buildDir.path}/node_modules/kotlin/kotlin.js")
-    from file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
+    from kotlinJs
+    from kotlinMetaJs
     into file("${jsTargetDir.path}")
+}
+copyKotlinJs.doFirst {
+    assert kotlinJs.exists()
+    assert kotlinMetaJs.exists()
 }
 
 copyKotlinJs.dependsOn assemble
