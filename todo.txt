@@ -1,12 +1,6 @@
 
-* Platform code is now only in the top module, which will create circular dependencies
+* Make sure `run` task works
 * Make sure it also works for automated tests
-* Try to get rid of the top level platform projects
-* Share configurations between projects
-* Add Native platform
-* Try without platform modules: should work for all except top one and ones that actually have platform-dependence
-
-* Try :beta:js instead of :beta:beta-js (make sure to change the pattern in top level build.gradle)
-* Try if platform modules can be skipped if they don't contain any code
+* Find/add a way to run only one platform
 
 

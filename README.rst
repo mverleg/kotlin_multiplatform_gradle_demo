@@ -31,6 +31,7 @@ What I learned
 * Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
+* This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
 
 For the future
 -------------------------------

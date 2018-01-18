@@ -33,15 +33,15 @@ task installKotlinJs(type: NpmTask) {
 //classes.dependsOn.remove("compileJava")
 //project(":alpha:js").classes.dependsOn.remove("alpha:js:compileKotlin2Js")
 
-//task copyKotlinJs(type: Copy) {
-//    dependsOn installKotlinJs
-//    from file("${buildDir.path}/node_modules/kotlin/kotlin.js")
-//    from file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
-//    into file("${jsTargetDir.path}")
-//}
-//
-//copyKotlinJs.dependsOn assemble
-//build.dependsOn copyKotlinJs
+task copyKotlinJs(type: Copy) {
+    dependsOn installKotlinJs
+    from file("${buildDir.path}/node_modules/kotlin/kotlin.js")
+    from file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
+    into file("${jsTargetDir.path}")
+}
+
+copyKotlinJs.dependsOn assemble
+build.dependsOn copyKotlinJs
 
 build.dependsOn installKotlinJs
 
@@ -50,6 +50,7 @@ task run(type: NodeTask) {
     dependsOn build
     def pth = "${jsTargetDir.path}/${project.name}.js"
     println("run $pth with node")
+    environment NODE_PATH: jsTargetDir.path
     script = file(pth)
 }
 
