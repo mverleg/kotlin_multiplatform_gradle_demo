@@ -38,6 +38,8 @@ What I learned
 * Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 * This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
+* If you get ``java.lang.NoClassDefFoundError``, I don't know why that happens, but do a clean build and it should work. Adding hamcrest to dependencies does not seem to work.
+* It's not hard to put shared functionality per level together at the top level (except ``buildscript`` which is inherited), possibly with one gradle file per platform.
 
 Some errors and solutions
 -------------------------------

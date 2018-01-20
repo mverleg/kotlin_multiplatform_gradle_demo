@@ -12,10 +12,14 @@ repositories {
     mavenCentral()
 }
 
+/* Make sure the tests run before doing the program. */
+run.dependsOn build
+
 mainClassName = "demo.alpha.MainKt"
 jar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
 }
+
 
