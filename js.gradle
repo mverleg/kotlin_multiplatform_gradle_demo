@@ -31,11 +31,8 @@ configure(js_submods) {
     def testsFileRelPath = jsTargetDir.toPath().relativize(testsFile.toPath())
     task runQunit(type: NodeTask) {
         dependsOn compileTestKotlin2Js
-        println(rootProject.tasks) // TODO
-//        dependsOn rootProject.tasks.copyKotlinJs
-//        dependsOn rootProject.tasks.installQunit
-        dependsOn ':demo-js:copyKotlinJs'
-        dependsOn ':demo-js:installQunit'
+        dependsOn ':copyKotlinJs'
+        dependsOn ':installQunit'
         workingDir = jsTargetDir
         script = file("${buildDir.path}/node_modules/qunit/bin/qunit")
         args = ['--seed', '1', testsFileRelPath]
@@ -46,6 +43,8 @@ configure(js_submods) {
     }
     test.dependsOn runQunit
 }
+
+apply plugin: 'com.moowork.node'
 
 /* Make sure node and npm are available for running code and tests. */
 node {
@@ -94,10 +93,5 @@ task installQunit(type: NpmTask) {
 
 copyKotlinJs.dependsOn assemble
 build.dependsOn copyKotlinJs
-
-dependencies {
-    expectedBy project(":")
-    compile project(":alpha:alpha-js")
-}
 
 

@@ -70,7 +70,7 @@ configure(jvm_submods) {
     }
 }
 
-// JS subprojects are in demo-js
+apply from: 'js.gradle'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.4.1'
