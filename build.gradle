@@ -28,18 +28,6 @@ allprojects {
     repositories {
         mavenCentral()
     }
-
-    /* Merge all the build directories into one. */
-    buildDir = rootProject.file('build')
-
-    /* Remove the possibility of java files because empty directories give warnings. */
-    // TODO: this doesn't remove the warnings? not all of them at least?
-    sourceSets {
-        main.java.srcDirs = ["src/main/java"] // TODO: empty?
-        test.java.srcDirs = ["src/main/java", "src/test/java"] // TODO: empty?
-        main.kotlin.srcDirs = ["src/main/kotlin"] // TODO: can this be removed? it was recommended for test-cant-see-code problem
-        test.kotlin.srcDirs = ["src/main/kotlin", "src/test/kotlin"] // TODO: can this be removed? it was recommended for test-cant-see-code problem
-    }
 }
 
 /* Platform and common configuration have their own files. */
