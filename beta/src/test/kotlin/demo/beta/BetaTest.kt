@@ -2,7 +2,7 @@ package demo.beta
 
 import kotlin.test.Test
 
-expect class PlatformTest() {
+expect class BetaTest() {
     @Test
     fun testGetPlatform()
 }
