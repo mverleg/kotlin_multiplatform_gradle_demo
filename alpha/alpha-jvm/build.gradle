@@ -15,6 +15,10 @@ repositories {
 /* Make sure the tests run before doing the program. */
 run.dependsOn build
 
+// TODO: I don't want this to be necessary!
+test.dependsOn ':beta:beta-jvm:test'
+test.dependsOn ':gamma:gamma-jvm:test'
+
 mainClassName = "demo.alpha.MainKt"
 jar {
     manifest {
