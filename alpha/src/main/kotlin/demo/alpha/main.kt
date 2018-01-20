@@ -1,11 +1,11 @@
 package demo.alpha
 
-import demo.beta.getPlatform
-import demo.gamma.multiplatform
+import demo.beta.Beta
+import demo.gamma.Gamma
 
 fun main(args: Array<String>) {
-    multiplatform()
-    println("Hello from ${getPlatform()}")
+    Gamma().multiplatform()
+    println("Hello from ${Beta().getPlatform()}")
 }
 
 

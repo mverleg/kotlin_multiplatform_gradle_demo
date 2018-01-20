@@ -38,7 +38,6 @@ What I learned
 * Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 * This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
-* If you get ``java.lang.NoClassDefFoundError``, I don't know why that happens, but do a clean build and it should work. Adding hamcrest to dependencies does not seem to work.
 * It's not hard to put shared functionality per level together at the top level (except ``buildscript`` which is inherited), possibly with one gradle file per platform.
 
 Some errors and solutions
@@ -49,6 +48,9 @@ Some errors and solutions
 * If you get npm errors, make sure the ``.npm`` directory for your system is writable.
 * If you get ``e: No class roots are found in the JDK path: /usr/lib/jvm/java-9-openjdk-amd64`` or similar, set ``JAVA_HOME`` environment variable to where java 8 jdk is (for example ``/usr/lib/jvm/java-8-openjdk-amd64/``).
 * If you get ``TypeError: Cannot read property 'config' of undefined``, probably qunit did not see your test file. Maybe there are no tests (should be caught by Gradle) or there is something wrong with the pattern (absolute paths don't work, for example).
+* If you get ``Error: Cannot find module`` on JS tests, set ``NODE_PATH`` to the js dir, because imports aren't relative to the file of the current dir but only to path & node modules.
+* If the test code cannot find the main code on JVM, #TODO
+* If you get ``java.lang.NoClassDefFoundError``, I don't know why that happens, but do a clean build and it should work. Adding hamcrest to dependencies does not seem to work.
 * If stuck on a problem for a long time, remove ``build``, ``gradle``, ``.gradle``, ``gradlew``, ``gradlew.bat`` and try again... (Yes, sage advice).
 
 For the future

@@ -1,7 +1,9 @@
 package demo.gamma
 
-fun multiplatform(): String {
-    return "okay"
+class Gamma {
+    fun multiplatform(): String {
+        return "okay"
+    }
 }
 
 

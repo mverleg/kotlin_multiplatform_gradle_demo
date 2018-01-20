@@ -45,7 +45,7 @@ configure(js_submods) {
         dependsOn ':copyKotlinJs'
         dependsOn ':installQunit'
         workingDir = jsTargetDir
-        script = file("${buildDir.path}/node_modules/qunit/bin/qunit")
+        script = file("${rootProject.buildDir.path}/node_modules/qunit/bin/qunit")
         args = ['--seed', '1', testsFileRelPath]
         doFirst {
             assert testsFile.exists()
@@ -67,7 +67,7 @@ node {
 
 tasks.withType(NodeTask) {
     /* Make all node tasks have the correct path to find sources. */
-    environment NODE_PATH: jsTargetDir.path
+    environment NODE_PATH: jsTargetDir.absolutePath
 }
 
 /* Install the Kotlin javascript files and copy them to the output folder. */

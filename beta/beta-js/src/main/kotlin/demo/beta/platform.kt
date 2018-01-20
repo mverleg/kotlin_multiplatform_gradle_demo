@@ -1,6 +1,10 @@
 package demo.beta
 
 @Suppress("NOTHING_TO_INLINE")
-actual inline fun getPlatform(): String {
-    return "JS"
+actual class Beta {
+    actual inline fun getPlatform(): String {
+        return "JS"
+    }
 }
+
+
