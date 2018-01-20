@@ -21,9 +21,6 @@ allprojects {
     repositories {
         mavenCentral()
     }
-
-    /* Merge all the build directories into one. */
-    buildDir = rootProject.file('build')
 }
 
 /* Platform and common configuration have their own files. */
