@@ -17,9 +17,6 @@ buildscript {
 
 apply plugin: 'kotlin-platform-common'
 
-/* Utility function. */
-project.ext.fmtMods = { mods -> mods.collect { it.toString().substring(8) }.join(', ') }
-
 /* All the projects (including this top-level one). */
 allprojects {
     group 'demo'
@@ -36,10 +33,6 @@ allprojects {
 /* Platform and common configuration have their own files. */
 apply from: 'platform_common.gradle'
 apply from: 'platform_jvm.gradle'
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.4.1'
-}
 
 dependencies {
     compile project(":alpha")

@@ -6,7 +6,6 @@
 project.ext.common_submods = subprojects.findAll {
     !it.name.endsWith('-jvm') && !it.name.endsWith('-js') // && !it.name.endsWith('-native')
 }
-println("common submodules ${fmtMods(common_submods)}")
 
 
 /* All the common subprojects (including this top-level one), but no platform projects. */

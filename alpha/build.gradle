@@ -1,4 +1,7 @@
 
 dependencies {
     compile project(":beta")
+    testCompile project(":beta")
 }
+
+

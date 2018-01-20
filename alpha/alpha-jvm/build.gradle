@@ -2,23 +2,6 @@
 dependencies {
     expectedBy project(":alpha")
     compile project(":beta:beta-jvm")
+    testCompile project(":beta:beta-jvm")
 }
-
-/* Application additions specific to the main module. */
-apply plugin: 'application'
-
-repositories {
-    mavenCentral()
-}
-
-/* Make sure the tests run before doing the program. */
-run.dependsOn build
-
-mainClassName = "demo.alpha.MainKt"
-jar {
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
-
 

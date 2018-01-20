@@ -6,7 +6,6 @@
 project.ext.jvm_submods = subprojects.findAll {
     it.name.endsWith('-jvm')
 }
-println("JVM submodules: ${fmtMods(jvm_submods)}")
 
 
 /* All JVM platform subprojects. */
