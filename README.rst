@@ -42,6 +42,7 @@ What I learned
 Some errors and solutions
 -------------------------------
 
+* If you get ``Could not find method expectedBy() for arguments ...``, move the ``dependencies`` block lower in the file.
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 * If you get npm errors, make sure the ``.npm`` directory for your system is writable.
 * If you get ``e: No class roots are found in the JDK path: /usr/lib/jvm/java-9-openjdk-amd64`` or similar, set ``JAVA_HOME`` environment variable to where java 8 jdk is (for example ``/usr/lib/jvm/java-8-openjdk-amd64/``).
