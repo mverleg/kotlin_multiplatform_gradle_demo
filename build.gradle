@@ -82,9 +82,11 @@ configure(js_submods) {
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
     }
 
+    ext.jsTargetDir = file("${buildDir.path}/js")
+
     compileKotlin2Js {
         kotlinOptions {
-            outputFile = "${project.buildDir.path}/js/${project.name}.js"
+            outputFile = file("${jsTargetDir}/${project.name}.js")
             moduleKind = "umd"
             sourceMap = true
             metaInfo = true
@@ -93,7 +95,10 @@ configure(js_submods) {
 
     compileTestKotlin2Js {
         kotlinOptions {
-            outputFile = "${project.buildDir.path}/js/test/${project.name}.js"
+            moduleKind = "umd"
+            sourceMap = true
+            metaInfo = true
+            outputFile = file("${jsTargetDir}/test_${project.name}.js")
         }
     }
 }

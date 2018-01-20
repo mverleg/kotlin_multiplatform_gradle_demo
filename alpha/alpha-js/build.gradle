@@ -1,7 +1,5 @@
 
 buildscript {
-    ext.jsTargetDir = file("${buildDir.path}/js")
-
     repositories {
         maven { url "https://plugins.gradle.org/m2/" }
     }
@@ -18,6 +16,7 @@ dependencies {
     compile project(":gamma:gamma-js")
 }
 
+/* Make sure node and npm are available for running code and tests. */
 node {
     download = true
     version = '9.4.0'
@@ -25,37 +24,61 @@ node {
     nodeModulesDir = buildDir
 }
 
-/* Install the Kotlin javascript file. */
+/* Install the Kotlin javascript files and copy them to the output folder. */
 task installKotlinJs(type: NpmTask) {
-  args = ['install', '--silent', 'kotlin']
+  args = ['install', '--silent', 'kotlin', 'kotlin-test']
 }
-
-def kotlinJs = file("${buildDir.path}/node_modules/kotlin/kotlin.js")
-def kotlinMetaJs = file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js")
+def kotlinJsFiles = [
+    file("${buildDir.path}/node_modules/kotlin/kotlin.js"),
+    file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js"),
+    file("${buildDir.path}/node_modules/kotlin-test/kotlin-test.js"),
+    file("${buildDir.path}/node_modules/kotlin-test/kotlin-test.meta.js")
+]
 task copyKotlinJs(type: Copy) {
     dependsOn installKotlinJs
-    from kotlinJs
-    from kotlinMetaJs
+    from kotlinJsFiles
     into file("${jsTargetDir.path}")
 }
 copyKotlinJs.doFirst {
-    assert kotlinJs.exists()
-    assert kotlinMetaJs.exists()
+    kotlinJsFiles.forEach { assert it.exists() }
 }
-
+tasks.withType(NodeTask) {
+    /* Make all node tasks have the correct path to find sources. */
+    environment NODE_PATH: jsTargetDir.path
+}
 copyKotlinJs.dependsOn assemble
 build.dependsOn copyKotlinJs
 
-build.dependsOn installKotlinJs
+/* Install QUnit for running tests and run it when testing. */
+task installQunit(type: NpmTask) {
+    args = ['install', '--silent', 'qunit']
+}
+def testsFile = file(compileTestKotlin2Js.outputFile)
+def testsFileRelPath = jsTargetDir.toPath().relativize(testsFile.toPath())
+task runQunit(type: NodeTask) {
+    dependsOn compileTestKotlin2Js
+    dependsOn copyKotlinJs
+    dependsOn installQunit
+    workingDir = jsTargetDir
+    script = file("${buildDir.path}/node_modules/qunit/bin/qunit")
+    args = ['--seed', '1', testsFileRelPath]
+}
+runQunit.doFirst {
+    assert testsFile.exists()
+    println("run ${testsFileRelPath} with qunit")
+}
+test.dependsOn runQunit
 
+/* Create a task that runs the alpha project when invoked. */
+def runFile = file("${jsTargetDir.path}/${project.name}.js")
 task run(type: NodeTask) {
     description = "Run the Javascript code using NodeJS (no browser)"
     dependsOn build
-    def pth = "${jsTargetDir.path}/${project.name}.js"
-    environment NODE_PATH: jsTargetDir.path
-    script = file(pth)
+    script = runFile
 }
 run.doFirst {
-    println("run $pth with node")
+    assert runFile.exists()
+    println("run ${runFile.path} with node")
 }
+
 

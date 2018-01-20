@@ -38,9 +38,14 @@ What I learned
 * Make sure to get the names right, as incorrect ones don't cause an error, they just fail silently. (It seems ridiculous but I guess there is a reason.)
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 * This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
+
+Some errors and solutions
+-------------------------------
+
 * If you get unresolved reference errors, make sure that the target module has a ``package`` statement, and check all the above.
 * If you get npm errors, make sure the ``.npm`` directory for your system is writable.
 * If you get ``e: No class roots are found in the JDK path: /usr/lib/jvm/java-9-openjdk-amd64`` or similar, set ``JAVA_HOME`` environment variable to where java 8 jdk is (for example ``/usr/lib/jvm/java-8-openjdk-amd64/``).
+* If you get ``TypeError: Cannot read property 'config' of undefined``, probably qunit did not see your test file. Maybe there are no tests (should be caught by Gradle) or there is something wrong with the pattern (absolute paths don't work, for example).
 * If stuck on a problem for a long time, remove ``build``, ``gradle``, ``.gradle``, ``gradlew``, ``gradlew.bat`` and try again... (Yes, sage advice).
 
 For the future
@@ -52,6 +57,12 @@ For the future
 * Avoid having to make platform modules when there is no platform specific code.
 * Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
 * Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
+* Try to get rid of 'w: Module "[...]-js" is defined in more than one file' which is shown for all js modules (it's because of overlapping build dir, I think)
+
+Tests
+-------------------------------
+
+Currently the tests just use ``kotlin.test``, and are ran by ``JUnit`` on JVM and ``QUnit`` in Javascript.
 
 More info
 -------------------------------
