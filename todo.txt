@@ -5,5 +5,7 @@
 * JVM doesn't run tests in dependent projects (including from top level), but JS does
 * Solve 'Unresolved reference: getPlatform' for 'gradl -p alpha/alpha-jvm build' (if beta gets built)
 * Get rid of the 'java.lang.NoClassDefFoundError' errors
+* Clearer error message when failing because a module has no tests
+* Why can't test code see actual code when expect/actual is involved?
 
 

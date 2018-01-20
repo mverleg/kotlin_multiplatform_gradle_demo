@@ -1,5 +1,7 @@
 package demo.beta
 
-expect inline fun getPlatform(): String
+expect class Beta() {
+    inline fun getPlatform(): String
+}
 
 
