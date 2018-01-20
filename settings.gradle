@@ -2,12 +2,7 @@ rootProject.name = 'demo'
 
 include 'alpha'
 include 'alpha:alpha-jvm'
-include 'alpha:alpha-js'
 include 'beta'
 include 'beta:beta-jvm'
-include 'beta:beta-js'
-include 'gamma'
-include 'gamma:gamma-jvm'
-include 'gamma:gamma-js'
 
 

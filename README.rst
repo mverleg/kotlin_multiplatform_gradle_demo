@@ -2,7 +2,7 @@
 Example of using Gradle sub-projects together with Kotlin multi-platform support
 =======================================================================================
 
-** STATUS: This 'example' has several open problems; don't rely on it. I'm not sure it will become functional, because this has already consumed several dozen hours, and I'd like to write some actual code instead of build scripts. **
+**STATUS: This 'example' has several open problems; don't rely on it. I'm not sure it will become functional, because this has already consumed several dozen hours, and I'd like to write some actual code instead of build scripts.**
 
 This project is an example of one way to set up a multi-platform Kotlin project separated into Gradle submodules.
 
