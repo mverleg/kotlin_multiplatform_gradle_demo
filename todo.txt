@@ -2,4 +2,8 @@
 * Make the tests for all modules run from top level
 * Solve warnings about java classpath
 * Solve warnings about js targets overlapping
+* JVM doesn't run tests in dependent projects (including from top level), but JS does
+* Solve 'Unresolved reference: getPlatform' for 'gradl -p alpha/alpha-jvm build' (if beta gets built)
+* Get rid of the 'java.lang.NoClassDefFoundError' errors
+
 

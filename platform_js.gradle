@@ -47,10 +47,10 @@ configure(js_submods) {
         workingDir = jsTargetDir
         script = file("${buildDir.path}/node_modules/qunit/bin/qunit")
         args = ['--seed', '1', testsFileRelPath]
-    }
-    runQunit.doFirst {
-        assert testsFile.exists()
-        println("run ${testsFileRelPath} with qunit")
+        doFirst {
+            assert testsFile.exists()
+            println("run ${testsFileRelPath} with qunit")
+        }
     }
     test.dependsOn runQunit
 }
