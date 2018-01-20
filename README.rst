@@ -52,13 +52,14 @@ Some errors and solutions
 For the future
 -------------------------------
 
-* Get errors when including non-existing submodules (Gradle strict mode?)
+* Get errors when including non-existing submodules (Gradle strict mode?).
 * Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js`` (I tried but they couldn't see eachother).
 * Remove dependency duplication by somehow not specifying them explicitly for platform modules when provided for common module.
 * Avoid having to make platform modules when there is no platform specific code.
-* Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?)
+* Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?).
 * Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
-* Try to get rid of 'w: Module "[...]-js" is defined in more than one file' which is shown for all js modules (it's because of overlapping build dir, I think)
+* Try to get rid of 'w: Module "[...]-js" is defined in more than one file' which is shown for all js modules (it's because of overlapping build dir, I think).
+* Make the distribution into jvm, js and common modules not depend on the name.
 
 Tests
 -------------------------------

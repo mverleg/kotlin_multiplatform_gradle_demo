@@ -16,22 +16,8 @@ buildscript {
 
 apply plugin: 'kotlin-platform-common'
 
-/* Make a list of submodules organized by platform. */
-def fmtMods = { mods -> mods.collect { it.toString().substring(8) }.join(', ') }
-project.ext {
-    common_submods = subprojects.findAll {
-        !it.name.endsWith('jvm') && !it.name.endsWith('js') // && !it.name.endsWith('-native')
-    }
-    println("common submodules ${fmtMods(common_submods)}")
-    jvm_submods = subprojects.findAll {
-        it.name.endsWith('jvm')
-    }
-    println("JVM submodules: ${fmtMods(jvm_submods)}")
-    js_submods = subprojects.findAll {
-        it.name.endsWith('js')
-    }
-    println("javascript submodules: ${fmtMods(js_submods)}")
-}
+/* Utility function. */
+project.ext.fmtMods = { mods -> mods.collect { it.toString().substring(8) }.join(', ') }
 
 /* All the projects (including this top-level one). */
 allprojects {
@@ -46,31 +32,10 @@ allprojects {
     buildDir = rootProject.file('build')
 }
 
-/* All the common subprojects (including this top-level one), but no platform projects. */
-configure(common_submods) {
-    apply plugin: 'kotlin-platform-common'
-
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
-    }
-}
-
-/* All JVM platform subprojects. */
-configure(jvm_submods) {
-    apply plugin: 'kotlin-platform-jvm'
-
-    dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        testCompile 'junit:junit:4.12'
-        testCompile 'org.hamcrest:hamcrest-core:1.3'
-        testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-        testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
-    }
-}
-
-apply from: 'js.gradle'
+/* Platform and common configuration have their own files. */
+apply from: 'platform_common.gradle'
+apply from: 'platform_jvm.gradle'
+apply from: 'platform_js.gradle'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.4.1'

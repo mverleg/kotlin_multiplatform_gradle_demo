@@ -1,4 +1,14 @@
 
+/**
+ * This file contains shared configuration for javascript platform modules.
+ */
+
+project.ext.js_submods = subprojects.findAll {
+    it.name.endsWith('-js')
+}
+println("javascript submodules: ${fmtMods(js_submods)}")
+
+
 /* All javascript platform subprojects. */
 configure(js_submods) {
     apply plugin: 'kotlin-platform-js'
@@ -27,6 +37,7 @@ configure(js_submods) {
         }
     }
 
+    /* Set up the QUnit test runner. */
     def testsFile = file(compileTestKotlin2Js.outputFile)
     def testsFileRelPath = jsTargetDir.toPath().relativize(testsFile.toPath())
     task runQunit(type: NodeTask) {
@@ -54,7 +65,6 @@ node {
     nodeModulesDir = buildDir
 }
 
-// TODO: comment
 tasks.withType(NodeTask) {
     /* Make all node tasks have the correct path to find sources. */
     environment NODE_PATH: jsTargetDir.path
@@ -77,13 +87,6 @@ task copyKotlinJs(type: Copy) {
 }
 copyKotlinJs.doFirst {
     kotlinJsFiles.forEach { assert it.exists() }
-}
-
-//TODO: Make sure this is only called once:
-installKotlinJs.doLast {
-    println("************************************")
-    println("* INSTALL NPM MODULE KOTLIN(-TEST) *")
-    println("************************************")
 }
 
 /* Install QUnit for running tests and run it when testing. */
