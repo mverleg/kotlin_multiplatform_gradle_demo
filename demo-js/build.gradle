@@ -1,0 +1,103 @@
+
+/* All javascript platform subprojects. */
+configure(js_submods) {
+    apply plugin: 'kotlin-platform-js'
+    apply plugin: 'com.moowork.node'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    }
+
+    compileKotlin2Js {
+        kotlinOptions {
+            outputFile = file("${jsTargetDir}/${project.name}.js")
+            moduleKind = "umd"
+            sourceMap = true
+            metaInfo = true
+        }
+    }
+
+    compileTestKotlin2Js {
+        kotlinOptions {
+            moduleKind = "umd"
+            sourceMap = true
+            metaInfo = true
+            outputFile = file("${jsTargetDir}/test_${project.name}.js")
+        }
+    }
+
+    def testsFile = file(compileTestKotlin2Js.outputFile)
+    def testsFileRelPath = jsTargetDir.toPath().relativize(testsFile.toPath())
+    task runQunit(type: NodeTask) {
+        dependsOn compileTestKotlin2Js
+        println(rootProject.tasks) // TODO
+//        dependsOn rootProject.tasks.copyKotlinJs
+//        dependsOn rootProject.tasks.installQunit
+        dependsOn ':demo-js:copyKotlinJs'
+        dependsOn ':demo-js:installQunit'
+        workingDir = jsTargetDir
+        script = file("${buildDir.path}/node_modules/qunit/bin/qunit")
+        args = ['--seed', '1', testsFileRelPath]
+    }
+    runQunit.doFirst {
+        assert testsFile.exists()
+        println("run ${testsFileRelPath} with qunit")
+    }
+    test.dependsOn runQunit
+}
+
+/* Make sure node and npm are available for running code and tests. */
+node {
+    download = true
+    version = '9.4.0'
+    npmVersion = '5.6.0'
+    nodeModulesDir = buildDir
+}
+
+// TODO: comment
+tasks.withType(NodeTask) {
+    /* Make all node tasks have the correct path to find sources. */
+    environment NODE_PATH: jsTargetDir.path
+}
+
+/* Install the Kotlin javascript files and copy them to the output folder. */
+task installKotlinJs(type: NpmTask) {
+  args = ['install', '--silent', 'kotlin', 'kotlin-test']
+}
+def kotlinJsFiles = [
+    file("${buildDir.path}/node_modules/kotlin/kotlin.js"),
+    file("${buildDir.path}/node_modules/kotlin/kotlin.meta.js"),
+    file("${buildDir.path}/node_modules/kotlin-test/kotlin-test.js"),
+    file("${buildDir.path}/node_modules/kotlin-test/kotlin-test.meta.js")
+]
+task copyKotlinJs(type: Copy) {
+    dependsOn installKotlinJs
+    from kotlinJsFiles
+    into file("${jsTargetDir.path}")
+}
+copyKotlinJs.doFirst {
+    kotlinJsFiles.forEach { assert it.exists() }
+}
+
+//TODO: Make sure this is only called once:
+installKotlinJs.doLast {
+    println("************************************")
+    println("* INSTALL NPM MODULE KOTLIN(-TEST) *")
+    println("************************************")
+}
+
+/* Install QUnit for running tests and run it when testing. */
+task installQunit(type: NpmTask) {
+    args = ['install', '--silent', 'qunit']
+}
+
+copyKotlinJs.dependsOn assemble
+build.dependsOn copyKotlinJs
+
+dependencies {
+    expectedBy project(":")
+    compile project(":alpha:alpha-js")
+}
+
+

@@ -1,5 +1,6 @@
 rootProject.name = 'demo'
 
+include 'demo-js'
 include 'alpha'
 include 'alpha:alpha-jvm'
 include 'alpha:alpha-js'

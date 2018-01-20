@@ -2,6 +2,9 @@
 * Fix the initializationError when running tests
 * Make the tests for all modules run from top level
 * Make JS run the tests too
+* Node only installed for js targets
+* Node packages only installed once, not for each package
+* Solve warnings about java classpath
+* Solve warnings about js targets overlapping
 *
-
 
