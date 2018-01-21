@@ -41,7 +41,7 @@ project.ext.deriveDependencyNames = {
     }
     def dependsOn = MODULE_DEPENDENCIES[parent.name]
     if (platform == null) {
-        return [parent, dependsOn.collect { ":${it}:${it}" }]
+        return [parent, dependsOn.collect { ":${it}" }]
     } else {
         return [parent, dependsOn.collect { ":${it}:${it}-${platform}" }]
     }
