@@ -6,7 +6,8 @@ import kotlin.test.assertTrue
 class TestRunnerTest() {
     @Test
     fun testIfTheyRun() {
-        assertTrue { false }
+        /* Use a failing assertion to confirm that tests are indeed ran. */
+//        assertTrue { false }
     }
 }
 
