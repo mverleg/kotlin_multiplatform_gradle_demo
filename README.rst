@@ -57,19 +57,21 @@ Some errors and solutions
 For the future
 -------------------------------
 
+* Make NPM faster (~1.5s even if already the correct version).
 * Get errors when including non-existing submodules (Gradle strict mode?).
-* Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js`` (I tried but they couldn't see eachother).
-* Remove dependency duplication by somehow not specifying them explicitly for platform modules when provided for common module.
+* Put platform projects in ``alpha:js`` instead of ``alpha:alpha-js`` (I tried but they couldn't see each other).
 * Avoid having to make platform modules when there is no platform specific code.
-* Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?).
-* Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful).
-* Try to get rid of 'w: Module "[...]-js" is defined in more than one file' which is shown for all js modules (it's because of overlapping build dir, I think).
+* Stop IntelliJ IDEA from creating a lot of extra modules (or understand why it's useful) => fixed amount of 9 per module; I guess it's necessary.
+* Try to get rid of ``w: Module "[...]-js" is defined in more than one file`` which is shown for all js modules.
+* Try to get rid of ``w: Classpath entry points to a non-existent location: /home/mark/gradle_demo/alpha/build/classes/java/main``.
 * Make the distribution into jvm, js and common modules not depend on the name.
+* Remove any non-determinism, since it feels like the same build sometimes works and sometimes doesn't... (caching?) => some of this was due to using a single build file for all projects.
+* Clearer error message when failing because a module has no tests
 
 Tests
 -------------------------------
 
-Currently the tests just use ``kotlin.test``, and are ran by ``JUnit`` on JVM and ``QUnit`` in Javascript.
+Currently the tests just use ``kotlin.test``, and are ran by ``JUnit`` on JVM and ``QUnit`` in Javascript. They are included in ``./gradlew run``.
 
 More info
 -------------------------------
