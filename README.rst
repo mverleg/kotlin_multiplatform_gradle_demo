@@ -39,6 +39,7 @@ What I learned
 * Just because the build completes and creates jars does not mean it worked; the jar might only contain .kjsm and .kotlin_metadata files.
 * This demo uses the top level ``build.gradle`` for coordinating submodules; the top level doesn't contain code or platforms.
 * It's not hard to put shared functionality per level together at the top level (except ``buildscript`` which is inherited), possibly with one gradle file per platform.
+* If you don't mind using string manipulation and adhering to a naming scheme (you have to anyway), you can specify the dependencies in ``dependencies.gradle`` and not repeat them for every platform.
 
 Some errors and solutions
 -------------------------------
