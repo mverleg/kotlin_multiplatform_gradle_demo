@@ -9,12 +9,6 @@ buildscript {
     }
 }
 
-dependencies {
-    expectedBy project(":alpha")
-    compile project(":beta:beta-js")
-    compile project(":gamma:gamma-js")
-}
-
 /* Create a task that runs the alpha project when invoked. */
 def runFile = file("${jsTargetDir.path}/${project.name}.js")
 task run(type: NodeTask) {
