@@ -22,7 +22,6 @@ configure(common_submods) {
     def (parentCommon, depNames) = rootProject.deriveDependencyNames(project)
 
     dependencies {
-        expectedBy parentCommon
         compile depNames.collect { project(it) }
     }
 }
