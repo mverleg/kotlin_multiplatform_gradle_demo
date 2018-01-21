@@ -1,5 +1,0 @@
-
-dependencies {
-    compile project(":beta")
-    compile project(":gamma")
-}

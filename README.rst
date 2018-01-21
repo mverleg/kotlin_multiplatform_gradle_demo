@@ -49,8 +49,8 @@ Some errors and solutions
 * If you get ``e: No class roots are found in the JDK path: /usr/lib/jvm/java-9-openjdk-amd64`` or similar, set ``JAVA_HOME`` environment variable to where java 8 jdk is (for example ``/usr/lib/jvm/java-8-openjdk-amd64/``).
 * If you get ``TypeError: Cannot read property 'config' of undefined``, probably qunit did not see your test file. Maybe there are no tests (should be caught by Gradle) or there is something wrong with the pattern (absolute paths don't work, for example).
 * If you get ``Error: Cannot find module`` on JS tests, set ``NODE_PATH`` to the js dir, because imports aren't relative to the file of the current dir but only to path & node modules.
-* If the test code cannot find the main code on JVM, #TODO
-* If you get ``java.lang.NoClassDefFoundError``, I don't know why that happens, but do a clean build and it should work. Adding hamcrest to dependencies does not seem to work.
+* If the test code cannot find the main code on JVM, it could mean that you're trying to use a shared build directory for multiple projects, which leads to errors and non-determinism.
+* If you get ``java.lang.NoClassDefFoundError``, this happens because of shared build dir (doing a clean build works too, but not a long-term solution). Adding hamcrest to dependencies does not seem to work.
 * If stuck on a problem for a long time, remove ``build``, ``gradle``, ``.gradle``, ``gradlew``, ``gradlew.bat`` and try again... (Yes, sage advice).
 
 For the future

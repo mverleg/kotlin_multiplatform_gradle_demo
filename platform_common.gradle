@@ -18,5 +18,12 @@ configure(common_submods) {
         testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
         testCompile "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
     }
+
+    def (parentCommon, depNames) = rootProject.deriveDependencyNames(project)
+
+    dependencies {
+        expectedBy parentCommon
+        compile depNames.collect { project(it) }
+    }
 }
 

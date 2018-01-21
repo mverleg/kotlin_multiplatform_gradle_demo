@@ -1,8 +1,8 @@
+import javax.naming.ConfigurationException
 
 buildscript {
     ext.kotlin_version = '1.2.20'
     ext.jsTargetDir = file("${rootProject.buildDir.path}/js")
-    println(jsTargetDir)
 
     repositories {
         mavenCentral()
@@ -17,8 +17,35 @@ buildscript {
 
 apply plugin: 'kotlin-platform-common'
 
+apply from: 'dependencies.gradle'
+
 /* Utility function. */
 project.ext.fmtMods = { mods -> mods.collect { it.toString().substring(8) }.join(', ') }
+project.ext.deriveDependencyNames = {
+    /* This function takes a subproject and finds the names of the same-platoform projects
+     * that it depends on, based on MODULE_DEPENDENCIES from `dependencies.gradle`.
+     * The purpose is to not define dependencies in platform modules. */
+    Project subProject ->
+    def tokens = subProject.name.tokenize('-')
+    def parent
+    def platform = tokens.last()
+    if (platform in ['jvm', 'js']) {
+        parent = project(':' + tokens.subList(0, tokens.size() - 1).join('-'))
+    } else {
+        parent = subProject
+        platform = null
+    }
+    if (!MODULE_DEPENDENCIES.containsKey(parent.name)) {
+        throw new ConfigurationException("`MODULE_DEPENDENCIES` in `dependencies.gradle` should " +
+                " have an entry for ${parent.name} that lists which modules it depends on")
+    }
+    def dependsOn = MODULE_DEPENDENCIES[parent.name]
+    if (platform == null) {
+        return [parent, dependsOn.collect { ":${it}:${it}" }]
+    } else {
+        return [parent, dependsOn.collect { ":${it}:${it}-${platform}" }]
+    }
+}
 
 /* All the projects (including this top-level one). */
 allprojects {

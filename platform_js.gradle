@@ -19,6 +19,13 @@ configure(js_submods) {
         testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
     }
 
+    def (parentCommon, depNames) = rootProject.deriveDependencyNames(project)
+
+    dependencies {
+        expectedBy parentCommon
+        compile depNames.collect { project(it) }
+    }
+
     compileKotlin2Js {
         kotlinOptions {
             outputFile = file("${jsTargetDir}/${project.name}.js")
