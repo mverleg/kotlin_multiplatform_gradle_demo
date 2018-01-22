@@ -1,7 +1,8 @@
 
 * Solve warnings about java classpath
-* Solve warnings about js targets overlapping
 * JVM doesn't run tests in dependent projects (including from top level), but JS does
-* Clearer error message when failing because a module has no tests
+* A module having no tests causes an error, which should either not happen or be more clear
+* Gradle clean and run tasks don't work together (error about NPM and installKotlinJs)
+*
 
 
