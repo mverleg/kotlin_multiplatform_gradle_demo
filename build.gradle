@@ -2,7 +2,6 @@ import javax.naming.ConfigurationException
 
 buildscript {
     ext.kotlin_version = '1.2.20'
-    ext.jsTargetDir = file("${rootProject.buildDir.path}/js")
 
     repositories {
         mavenCentral()
@@ -55,6 +54,9 @@ allprojects {
     repositories {
         mavenCentral()
     }
+
+    /* Javascript output directory. Actually only needed for the root project and javascript platform ones. */
+    ext.jsTargetDir = file("${project.buildDir.path}/js")
 }
 
 /* Platform and common configuration have their own files. */

@@ -20,6 +20,8 @@ This should show (between a bunch of Gradle stuff)::
     Hello from JVM
     Hello from Javascript
 
+To collect the Javascript files in ``build/js``, use the ``collectWeb`` task.
+
 What I learned
 -------------------------------
 
