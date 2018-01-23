@@ -18,7 +18,7 @@ Or to run only one platform (``jvm`` in this example)::
 This should show (between a bunch of Gradle stuff)::
 
     Hello from JVM
-    Hello from Javascript
+    Hello from JS
 
 To collect the Javascript files in ``build/js``, use the ``collectWeb`` task.
 
