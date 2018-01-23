@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="alpha-js_main" target="1.8" />
+      <module name="alpha-js_test" target="1.8" />
+      <module name="alpha-jvm_main" target="1.8" />
+      <module name="alpha-jvm_test" target="1.8" />
+      <module name="alpha-platform_js_main" target="1.8" />
+      <module name="alpha-platform_js_test" target="1.8" />
+      <module name="alpha-platform_jvm_main" target="1.8" />
+      <module name="alpha-platform_jvm_test" target="1.8" />
+      <module name="alpha_main" target="1.8" />
+      <module name="alpha_test" target="1.8" />
+      <module name="beta-js_main" target="1.8" />
+      <module name="beta-js_test" target="1.8" />
+      <module name="beta-jvm_main" target="1.8" />
+      <module name="beta-jvm_test" target="1.8" />
+      <module name="beta-platform_js_main" target="1.8" />
+      <module name="beta-platform_js_test" target="1.8" />
+      <module name="beta-platform_jvm_main" target="1.8" />
+      <module name="beta-platform_jvm_test" target="1.8" />
+      <module name="beta_main" target="1.8" />
+      <module name="beta_test" target="1.8" />
+      <module name="demo-js_main" target="1.8" />
+      <module name="demo-js_test" target="1.8" />
+      <module name="demo-jvm_main" target="1.8" />
+      <module name="demo-jvm_test" target="1.8" />
+      <module name="demo_main" target="1.8" />
+      <module name="demo_test" target="1.8" />
+      <module name="gamma-js_main" target="1.8" />
+      <module name="gamma-js_test" target="1.8" />
+      <module name="gamma-jvm_main" target="1.8" />
+      <module name="gamma-jvm_test" target="1.8" />
+      <module name="gamma-platform_js_main" target="1.8" />
+      <module name="gamma-platform_js_test" target="1.8" />
+      <module name="gamma-platform_jvm_main" target="1.8" />
+      <module name="gamma-platform_jvm_test" target="1.8" />
+      <module name="gamma_main" target="1.8" />
+      <module name="gamma_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

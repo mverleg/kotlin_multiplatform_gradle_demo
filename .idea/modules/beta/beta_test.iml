@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":beta:test" external.linked.project.path="$MODULE_DIR$/../../../beta" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="demo" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="3" platform="Common (experimental) " useProjectSettings="false">
+        <compilerSettings />
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../beta/build/classes/kotlin/test" />
+          <option name="classpath" value="$MODULE_DIR$/../../../beta/build/classes/java/main:/home/mark/gradle_demo/beta/build/classes/kotlin/main:/home/mark/gradle_demo/beta/build/resources/main:/home/mark/.cache/gradlehome/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-annotations-common/1.2.20/8c5cf504f12880580b1d80284de042ddf6d1f1c3/kotlin-test-annotations-common-1.2.20.jar:/home/mark/.cache/gradlehome/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-common/1.2.20/7ee2c35d6a0551cc5fbd30e19e7fea54adc6095e/kotlin-test-common-1.2.20.jar:/home/mark/.cache/gradlehome/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.20/70f59aa9ada31530ae7125fe6a692c5d8b8c0130/kotlin-stdlib-common-1.2.20.jar:/home/mark/gradle_demo/beta/build/classes/kotlin/main" />
+          <option name="languageVersion" value="1.2" />
+          <option name="apiVersion" value="1.2" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output-test url="file://$MODULE_DIR$/../../../beta/out/test/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../beta/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../beta/src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../beta/src/test/resources" type="java-test-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="beta_main" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-annotations-common:1.2.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-test-common:1.2.20" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.20" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="beta_main" />
+</module>

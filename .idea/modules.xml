@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha.iml" group="alpha" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js.iml" group="alpha/alpha-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js_main.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js_main.iml" group="alpha/alpha-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js_test.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-js/alpha-js_test.iml" group="alpha/alpha-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm.iml" group="alpha/alpha-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm_main.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm_main.iml" group="alpha/alpha-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm_test.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha-jvm/alpha-jvm_test.iml" group="alpha/alpha-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha_main.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha_main.iml" group="alpha" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alpha/alpha_test.iml" filepath="$PROJECT_DIR$/.idea/modules/alpha/alpha_test.iml" group="alpha" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta.iml" group="beta" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js.iml" group="beta/beta-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js_main.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js_main.iml" group="beta/beta-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js_test.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-js/beta-js_test.iml" group="beta/beta-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm.iml" group="beta/beta-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm_main.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm_main.iml" group="beta/beta-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm_test.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta-jvm/beta-jvm_test.iml" group="beta/beta-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta_main.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta_main.iml" group="beta" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/beta/beta_test.iml" filepath="$PROJECT_DIR$/.idea/modules/beta/beta_test.iml" group="beta" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo.iml" filepath="$PROJECT_DIR$/.idea/modules/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_main.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo_test.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma.iml" group="gamma" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js.iml" group="gamma/gamma-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js_main.iml" group="gamma/gamma-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-js/gamma-js_test.iml" group="gamma/gamma-js" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm.iml" group="gamma/gamma-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm_main.iml" group="gamma/gamma-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma-jvm/gamma-jvm_test.iml" group="gamma/gamma-jvm" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma_main.iml" group="gamma" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gamma/gamma_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gamma/gamma_test.iml" group="gamma" />
+    </modules>
+  </component>
+</project>
