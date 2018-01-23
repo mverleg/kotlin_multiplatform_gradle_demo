@@ -7,7 +7,7 @@ class TestRunnerTest() {
     @Test
     fun testIfTheyRun() {
         /* Use a failing assertion to confirm that tests are indeed ran. */
-//        assertTrue { false }
+        assertTrue { false }
     }
 }
 
