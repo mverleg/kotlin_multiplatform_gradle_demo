@@ -99,4 +99,6 @@ These paragraphs from the documentation may be useful:
 
     A platform module can depend on any modules and libraries available on the given platform (including Java libraries in case of Kotlin/JVM and JS libraries for Kotlin/JS). Platform modules targeting Kotlin/JVM can also contain code in Java and other JVM languages.
 
+(Force-pushed on 27 jan 2018, sorry about that)
+
 
