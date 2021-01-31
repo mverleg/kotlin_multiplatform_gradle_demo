@@ -1,4 +1,6 @@
 
+**Please be aware that this was created in early 2018. Some of it may still be useful, but please realize that parts will have stopped working or become deprecated. I am no longer updating it (though PRs are welcome).**
+
 Example of using Gradle sub-projects together with Kotlin multi-platform support
 =======================================================================================
 
